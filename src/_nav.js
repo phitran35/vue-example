@@ -1,15 +1,13 @@
 export default {
   items: [
     {
-      name: 'Survey',
-      url: '/surveys',
+      name: 'Dashboard',
+      url: '/',
       icon: 'expanded-default-icon',
       children: [
-        {name: 'Create New', url: '/surveys/new'},
-        {name: 'Pending Review', url: '/surveys/pending'},
-        {name: 'Survey Library', url: '/surveys/'},
-        {name: 'Question Library', url: '/surveys/questions'},
-        {name: 'Survey Map', url: '/surveys/map'}
+        {name: 'Employer', url: '/employers/'},
+        {name: 'Employee', url: '/employees/'},
+        {name: 'Incentive', url: '/incentive/'}
       ]
     }
   ]

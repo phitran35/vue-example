@@ -141,8 +141,8 @@ var Node = /** @class */ (function (_super) {
             });
         }
     };
-    Node.prototype.onViewSurvey = function (eventData) {
-        console.log('tree-lib onViewSurvey callback=', eventData);
+    Node.prototype.onViewEmployer = function (eventData) {
+        console.log('tree-lib onViewEmployer callback=', eventData);
         if (eventData && this.data.callback) {
             this.data.callback(eventData);
         }
@@ -229,8 +229,8 @@ var Tree = /** @class */ (function (_super) {
     Tree.prototype.onchange = function (eventData) {
         this.$emit("change", eventData);
     };
-    Tree.prototype.onViewSurvey = function (eventData) {
-        this.$emit("viewSurvey", eventData);
+    Tree.prototype.onViewEmployer = function (eventData) {
+        this.$emit("viewEmployer", eventData);
     };
     Tree.prototype.ondragstart = function (event) {
         if (!this.draggable) {

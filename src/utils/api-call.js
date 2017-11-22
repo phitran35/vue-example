@@ -23,7 +23,7 @@ export function buildOptions (method = defaultMethod, body, customHeaders) {
  * Build api server
  */
 export function buildApiServer () {
-  return process.env.HEARTBEAT_API_SERVER_HOST;
+  return process.env.CLIENTCENTER_API_SERVER_HOST;
 }
 
 /**
@@ -31,26 +31,9 @@ export function buildApiServer () {
  */
 export function getEndPoints () {
   return {
-    embers: {
-      legendPaths: buildApiServer() + '/api/ember/paths/legends',
-      paths: buildApiServer() + '/api/ember/paths',
-      practices: buildApiServer() + '/api/ember/practices'
-    },
-    general: {
-      types: {
-        questiontypes: buildApiServer() + '/api/general/types/questiontypes',
-        transformatives: buildApiServer() + '/api/general/types/transformatives'
-      }
-    },
-    question: {
-      main: buildApiServer() + '/api/survey-questions',
-      detail: buildApiServer() + '/api/survey-questions/{surveyQuestionId}'
-    },
-    survey: {
-      main: buildApiServer() + '/api/surveys',
-      detail: buildApiServer() + '/api/surveys/:id',
-      types: buildApiServer() + '/api/surveys/types',
-      map: buildApiServer() + '/api/surveys/map'
+    employer: {
+      main: buildApiServer() + '/api/employers',
+      detail: buildApiServer() + '/api/employers/:id'
     },
     users: {
       login: buildApiServer() + '/api/login'

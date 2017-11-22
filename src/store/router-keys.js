@@ -1,9 +1,14 @@
 export default {
   login: '/login',
-  home: {
-    parent: '/home',
+  dashboard: {
+    parent: '/',
     children: {
-      new: 'new'
+      employer: {
+        parent: '/employers',
+        children: {
+          new: '/new'
+        }
+      }
     }
   }
 };

@@ -4,9 +4,9 @@
       <div slot="header" class="simple-table-header">
         <h4 class="simple-table-header-title">{{cardHeader}}</h4>
         <b-button class="button-skip" v-if="showSkipButton" @click="handleSkipButtonClick()">{{labelSkipButton}}</b-button>
-        <b-button class="button-skip" v-if="showLongFormSurveyButton" @click="handleLongFormButtonClick()">
-          <template v-if="isLongSurvey"><Icon class="icon-long-survey" name="check-square-o" scale="0.8"></Icon></template>
-          {{labelLongFormSurveyButton}}
+        <b-button class="button-skip" v-if="showLongFormEmployerButton" @click="handleLongFormButtonClick()">
+          <template v-if="isLongEmployer"><Icon class="icon-long-employer" name="check-square-o" scale="0.8"></Icon></template>
+          {{labelLongFormEmployerButton}}
         </b-button>
       </div>
       <b-card-body>
@@ -150,11 +150,11 @@ export default {
       type: Boolean,
       default: false
     },
-    labelLongFormSurveyButton: {
+    labelLongFormEmployerButton: {
       type: String,
       default: ''
     },
-    showLongFormSurveyButton: {
+    showLongFormEmployerButton: {
       type: Boolean,
       default: false
     }
@@ -170,7 +170,7 @@ export default {
       modalDetails: { index: '', data: '' },
       filterSelectedDate: 'a',
       currentTotalRows: 0,
-      isLongSurvey: false,
+      isLongEmployer: false,
       optionsFilterDate: [
         { value: null, text: 'Please select an option' },
         { value: 'a', text: 'Recent' }
@@ -204,8 +204,8 @@ export default {
       this.$emit(EVENT_SIMPLE_TABLE_SKIP_BUTTON_CLICK);
     },
     handleLongFormButtonClick () {
-      this.isLongSurvey = !this.isLongSurvey;
-      this.$emit(EVENT_SIMPLE_TABLE_LONG_SURVEY_CLICK, this.isLongSurvey);
+      this.isLongEmployer = !this.isLongEmployer;
+      this.$emit(EVENT_SIMPLE_TABLE_LONG_SURVEY_CLICK, this.isLongEmployer);
     },
     onTableItemSelected (item) {
       this.$emit(EVENT_SIMPLE_TABLE_ITEM_CLICK, item);
@@ -327,7 +327,7 @@ export default {
       color: $color-published;
     }
 
-    .icon-long-survey {
+    .icon-long-employer {
       color: white;
     }
 

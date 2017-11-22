@@ -88,7 +88,8 @@ export default {
     },
     onLoginSuccess (user) {
       this.$Progress.finish();
-      this.$router.push(routerKeys.surveys.parent);
+      console.log(routerKeys);
+      this.$router.push(routerKeys.dashboard.children.employer.parent);
     },
     ...mapActions({
       login: FETCH_USER_LOGIN

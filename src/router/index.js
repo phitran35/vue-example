@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import localStorageKeys from '../store/local-storage-keys';
 
 // Containers
+import Employer from '../views/employers/Employer';
 import Full from '../containers/Full';
 
 // Views
@@ -18,19 +19,40 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'Home',
-      redirect: routerKeys.home.parent,
+      name: 'Dashboard',
+      redirect: routerKeys.dashboard.children.employer.parent,
       component: Full,
       children: [
         {
-          path: 'surveys',
-          name: 'Survey',
+          path: '/employers',
+          name: 'Employer',
           meta: { requiresAuth: true },
           component: {
             render (c) { return c('router-view'); }
-          }
+          },
+          children: [
+            {
+              path: '',
+              name: 'Employer List',
+              component: Employer
+            }
+          ]
+        },
+        {
+          path: '/employees',
+          name: 'Employee',
+          meta: { requiresAuth: true },
+          component: {
+            render (c) { return c('router-view'); }
+          },
+          children: [
+            {
+              path: '',
+              name: 'Employee List',
+              component: Employer
+            }
+          ]
         }
-
       ]
     },
     {
