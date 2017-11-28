@@ -1,11 +1,11 @@
-import localStorageKeys from '../store/local-storage-keys';
+import constants from '@/_consts';
 
 const defaultMethod = 'GET';
 /**
  * Build options
  */
 export function buildOptions (method = defaultMethod, body, customHeaders) {
-  const token = localStorage.getItem(localStorageKeys.TOKEN);
+  const token = localStorage.getItem(constants.LOCAL_STORE.token);
   return {
     method,
     headers: { ...{

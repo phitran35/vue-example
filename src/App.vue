@@ -4,9 +4,10 @@
 
 <script>
 import Vue from 'vue';
-import localStorageKeys from './store/local-storage-keys';
 import routerKeys from './store/router-keys';
 import globalMessage from './store/message';
+import constants from '@/_consts';
+
 export default {
   name: 'app',
   beforeMount () {
@@ -14,7 +15,7 @@ export default {
       return response;
     }, (error) => {
       if (error.response && error.response.status === 401) {
-        localStorage.setItem(localStorageKeys.TOKEN, '');
+        localStorage.setItem(constants.LOCAL_STORE.token, '');
         this.$modal.show('dialog', {
           title: globalMessage.dialog.unAuthorizedToken.title,
           text: globalMessage.dialog.unAuthorizedToken.msg,

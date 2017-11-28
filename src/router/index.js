@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import localStorageKeys from '../store/local-storage-keys';
 
 // Containers
 import Employer from '../views/employers/Employer';
@@ -9,6 +8,7 @@ import Full from '../containers/Full';
 // Views
 import Login from '../views/login/Login';
 import routerKeys from '../store/router-keys';
+import constants from '@/_consts';
 
 Vue.use(Router);
 
@@ -64,7 +64,7 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.requiresAuth) && !localStorage.getItem(localStorageKeys.TOKEN)) {
+  if (to.matched.some(record => record.meta.requiresAuth) && !localStorage.getItem(constants.LOCAL_STORE.token)) {
     next({path: routerKeys.login, query: { redirect: to.fullPath }});
   } else {
     next();

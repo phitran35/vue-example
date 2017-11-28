@@ -29,7 +29,7 @@
   import { EventBus } from '../event-bus';
 
   import routerKeys from '../store/router-keys';
-  import localStorageKeys from '../store/local-storage-keys';
+  import constants from '@/_consts';
 
   import {
     EVENT_TOAST_MESSAGE,
@@ -81,7 +81,7 @@
     },
     methods: {
       beforeDialogClose () {
-        const token = localStorage.getItem(localStorageKeys.TOKEN);
+        const token = localStorage.getItem(constants.LOCAL_STORE.token);
         if (!token) {
           this.$router.push(routerKeys.login);
         }
